@@ -1,3 +1,5 @@
+gem "jekyll", ">= 3.6.3"
+
 # Site
 title:              Sun
 bio:                'Minimal, one column jekyll theme.'
