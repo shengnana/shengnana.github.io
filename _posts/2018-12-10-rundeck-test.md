@@ -92,22 +92,25 @@ socket是"打开—读/写—关闭"模式的实现，以使用TCP协议通讯�
 
 通常服务器在启动的时候都会绑定一个众所周知的地址（如ip地址+端口号），用于提供服务，客户就可以通过它来接连服务器；而客户端就不用指定，有系统自动分配一个端口号和自身的ip地址组合。这就是为什么通常服务器端在listen之前会调用bind()，而客户端就不会调用，而是在connect()时由系统随机生成一个。
 
-### Standard Code Block
+
 {% highlight html %}
   {% raw %}
 
-  int listen(int sockfd, int backlog);监听socket
+  int listen(int sockfd, int backlog);
+  监听socket
 
   sockfd:要监听的socket描述字
   backlog:相应socket可以排队的最大连接个数 
 
-  int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);连接某个socket
+  int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+  连接某个socket
 
   sockfd:客户端的socket描述字
   addr:服务器的socket地址
   addrlen:socket地址的长度
 
-  int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);TCP服务器监听到客户端请求之后，调用accept()函数取接收请求
+  int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
+  TCP服务器监听到客户端请求之后，调用accept()函数取接收请求
 
   sockfd:服务器的socket描述字
   addr:客户端的socket地址
@@ -119,7 +122,8 @@ socket是"打开—读/写—关闭"模式的实现，以使用TCP协议通讯�
   buf：缓冲区
   count：缓冲区长度
 
-  ssize_t write(int fd, const void *buf, size_t count);向socket写入内容，其实就是发送内容
+  ssize_t write(int fd, const void *buf, size_t count);
+  向socket写入内容，其实就是发送内容
 
   fd:socket描述字
   buf：缓冲区
