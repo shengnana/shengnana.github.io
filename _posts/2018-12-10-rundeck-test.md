@@ -93,6 +93,7 @@ socket是"打开—读/写—关闭"模式的实现，以使用TCP协议通讯�
 通常服务器在启动的时候都会绑定一个众所周知的地址（如ip地址+端口号），用于提供服务，客户就可以通过它来接连服务器；而客户端就不用指定，有系统自动分配一个端口号和自身的ip地址组合。这就是为什么通常服务器端在listen之前会调用bind()，而客户端就不会调用，而是在connect()时由系统随机生成一个。
 
 ### Standard Code Block
+{% highlight html %}
   {% raw %}
 
   int listen(int sockfd, int backlog);监听socket
@@ -128,6 +129,6 @@ socket是"打开—读/写—关闭"模式的实现，以使用TCP协议通讯�
   socket标记为以关闭 ，使相应socket描述字的引用计数-1，当引用计数为0的时候，触发TCP客户端向服务器发送终止连接请求。
 
 {% endraw %}
-
+{% endhighlight %}
 
 原文地址：http://www.cnblogs.com/dolphinX/p/3460545.html
