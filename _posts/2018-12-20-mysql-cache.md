@@ -37,7 +37,7 @@
 ##### 下面是不缓存的相关情况 #####
 
 | 执行表达式 | 说明 |
-|:=====|:=====|
+|:---------|:---------|
 | BENCHMARK()   | 返回服务器执行表达式的时间，而不会涉及分析和优化的开销,用于测试特定操作的执行速度   |
 | CONNECTION_ID()   | 返回已经建立连接的连接ID   |
 |----
@@ -60,8 +60,8 @@
 | USER() |  |
 |----
 | 引用自定义变量或者mysql系统数据库中的表|  |
-| SELECT * FROM ...WHERE autoincrement_col IS NULL | 与NULL做比对 |
-|=====
+| SELECT * FROM ...WHERE autoincrement_col IS NULL | 与NULL做比对 
+{: rules="groups"}
 
 
 ### 打开QCache带来的额外的消耗 ###
