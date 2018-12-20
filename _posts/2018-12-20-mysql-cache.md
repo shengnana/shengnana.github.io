@@ -47,19 +47,17 @@
 | ENCRYPT(param1) |带一个参数的ENCRYPT()|
 | FOUND_ROWS() | select语句中增加SQL_CALC_FOUND_ROW选项，然后执行select FOUND_ROWS(),可以返回匹配全量的行数,适用于sql中有limit分页的清况 |
 | GET_LOCK(),RELEASE_LOCK() | |
-| LAST_INSERT_ID() | |
-| LOAD_FILE() | |
-| MASTER_POS_WAIT() | |
-| NOW() | |
-| RAND() | |
-| SYSDATE() | |
+| LAST_INSERT_ID() |  |
+| LOAD_FILE() |  |
+| MASTER_POS_WAIT() |  |
+| NOW() |  |
+| RAND() |  |
+| SYSDATE() |  |
 | UNIX_TIMESTAMP() | 不带参数的UNIX_TIMESTAMP() |
-| USER() | |
-| 引用自定义变量或者mysql系统数据库中的表|
-| SELECT * FROM ...WHERE autoincrement_col IS NULL | |
-|=====
-| Foot1   | Foot2   | Foot3
-{: rules="groups"}
+| USER() |  |
+| 引用自定义变量或者mysql系统数据库中的表|  |
+| SELECT * FROM ...WHERE autoincrement_col IS NULL | 与NULL做比对 |
+
 
 ### 打开QCache带来的额外的消耗 ###
 
