@@ -58,6 +58,8 @@
 | 引用自定义变量或者mysql系统数据库中的表|
 | SELECT * FROM ...WHERE autoincrement_col IS NULL | |
 |=====
+| Foot1   | Foot2   | Foot3
+{: rules="groups"}
 
 ### 打开QCache带来的额外的消耗 ###
 
