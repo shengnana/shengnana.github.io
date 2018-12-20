@@ -80,33 +80,31 @@
       +————————-----------------+———–+ 
  
     | Qcache_free_blocks      | 1         | 
- 
     | Qcache_free_memory      | 134208800 | 
- 
     | Qcache_hits             | 0         | 
- 
     | Qcache_inserts          | 0         | 
- 
     | Qcache_lowmem_prunes    | 0         | 
- 
     | Qcache_not_cached       | 2         | 
- 
     | Qcache_queries_in_cache | 0         | 
- 
     | Qcache_total_blocks     | 1         | 
 
   {% endraw %}
-
-
-
-
-
-
-
-
-
-
-
+  
+  #### 解析 #####
+    {% raw %}
+      * Qcache_free_blocks:表示查询缓存中目前还有多少剩余的blocks，如果该值显示较大，则说明查询缓存中的内存碎片过多了，可能在一定的时间进行整理。  
+    减少碎片： 
+      合适的query_cache_min_res_unit可以减少碎片，这个参数最合适的大小和应用程序查询结果的平均大小直接相关，可以通过内存实际消耗（query_cache_size - Qcache_free_memory）除以Qcache_queries_in_cache计算平均缓存大小。 
+      可以通过Qcache_free_blocks来观察碎片，这个值反应了剩余的空闲块，如果这个值很多，但是 
+      * Qcache_lowmem_prunes却不断增加，则说明碎片太多了。可以使用flush query cache整理碎片，重新排序，但不会清空，清空命令是reset query cache。整理碎片期间，查询缓存无法被访问，可能导致服务器僵死一段时间，所以查询缓存不宜太大。 
+      * Qcache_free_memory:查询缓存的内存大小，通过这个参数可以很清晰的知道当前系统的查询内存是否够用，是多了，还是不够用，DBA可以根据实际情况做出调整。 
+      * Qcache_hits:表示有多少次命中缓存。我们主要可以通过该值来验证我们的查询缓存的效果。数字越大，缓存效果越理想。 
+      * Qcache_inserts: 表示多少次未命中然后插入，意思是新来的SQL请求在缓存中未找到，不得不执行查询处理，执行查询处理后把结果insert到查询缓存中。这样的情况的次 数，次数越多，表示查询缓存应用到的比较少，效果也就不理想。当然系统刚启动后，查询缓存是空的， 这很正常。 
+      * Qcache_lowmem_prunes:该参数记录有多少条查询因为内存不足而被移除出查询缓存。通过这个值，用户可以适当的调整缓存大小。 
+      * Qcache_not_cached: 表示因为query_cache_type的设置而没有被缓存的查询数量。 
+      * Qcache_queries_in_cache:当前缓存中缓存的查询数量。 
+      * Qcache_total_blocks:当前缓存的block数量。
+    {# endraw %}
 
 
 
