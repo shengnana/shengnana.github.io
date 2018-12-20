@@ -1,6 +1,6 @@
-## MYSQL缓存 
+## MYSQL缓存 ##
 
-### 缓存配置 
+### 缓存配置 ###
 
 ##### sql语句执行过程包括查询缓存，解析SQL，优化SQL，执行。MYSQL配置中有一个缓存开关，开关默认是关闭状态，也即禁止使用query_cache。 
 ##### 要查询状态，可以用下面的查询语句。 #####
@@ -13,15 +13,15 @@
 
 ##### 查询mysql中缓存的设置情况，使用下面的命令： #####
 
-{% raw %}
-mysql> SHOW STATUS LIKE 'Qcache%';
-{% endraw %}
+  {% raw %}
+    mysql> SHOW STATUS LIKE 'Qcache%';
+  {% endraw %}
 
 ##### 如果查询结果中显示 query_cache_size =0，则表示没有设置，应该到my.ini中设置。 #####
-{% raw %}
-query_cache_size=128M 
-query_cache_type=1 
-{% endraw %}
+  {% raw %}
+    query_cache_size=128M 
+    query_cache_type=1 
+  {% endraw %}
 
 ##### query_cache_size表示mysql用于缓存的内存块大小。mysql会将这个内存块设置为一个个变长的数据块。mysql启动是会申请一个连续的内存块。之后需要缓存的时候，在查询开始时会根据参数申请一个大于参数query_cache_min_res_unit的块来存储数据，因为返回结果前无法获知结果多大，所以即使数据很小，也会分配同样大小的内存块。 
 
@@ -66,11 +66,12 @@ query_cache_type=1
 
 ### 查看缓存使用状态 ###
 
-{% raw %}
-mysql> show status like ‘%Qcache%’; 
+  {% raw %}
+    mysql> show status like ‘%Qcache%’; 
 
    Variable_name           | Value     | 
- +————————-----------------+———–+ 
+   
+   +————————-----------------+———–+ 
  
 | Qcache_free_blocks      | 1         | 
  
@@ -88,7 +89,7 @@ mysql> show status like ‘%Qcache%’;
  
 | Qcache_total_blocks     | 1         | 
 
-{% endraw %}
+  {% endraw %}
 
 
 
