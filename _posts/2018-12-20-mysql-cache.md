@@ -14,10 +14,11 @@
 ##### 查询mysql中缓存的设置情况，使用下面的命令： #####
 
   {% raw %}
-    mysql> SHOW STATUS LIKE 'Qcache%';
+    MYSQL> SHOW STATUS LIKE 'Qcache%';
   {% endraw %}
 
 ##### 如果查询结果中显示 query_cache_size =0，则表示没有设置，应该到my.ini中设置。 #####
+
   {% raw %}
     query_cache_size=128M 
     query_cache_type=1 
@@ -69,25 +70,25 @@
   {% raw %}
     mysql> show status like ‘%Qcache%’; 
 
-   Variable_name           | Value     | 
+    Variable_name           | Value     | 
    
-   +————————-----------------+———–+ 
+      +————————-----------------+———–+ 
  
-| Qcache_free_blocks      | 1         | 
+    | Qcache_free_blocks      | 1         | 
  
-| Qcache_free_memory      | 134208800 | 
+    | Qcache_free_memory      | 134208800 | 
  
-| Qcache_hits             | 0         | 
+    | Qcache_hits             | 0         | 
  
-| Qcache_inserts          | 0         | 
+    | Qcache_inserts          | 0         | 
  
-| Qcache_lowmem_prunes    | 0         | 
+    | Qcache_lowmem_prunes    | 0         | 
  
-| Qcache_not_cached       | 2         | 
+    | Qcache_not_cached       | 2         | 
  
-| Qcache_queries_in_cache | 0         | 
+    | Qcache_queries_in_cache | 0         | 
  
-| Qcache_total_blocks     | 1         | 
+    | Qcache_total_blocks     | 1         | 
 
   {% endraw %}
 
