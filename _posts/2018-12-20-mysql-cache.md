@@ -104,7 +104,7 @@
       * Qcache_not_cached: 表示因为query_cache_type的设置而没有被缓存的查询数量。 
       * Qcache_queries_in_cache:当前缓存中缓存的查询数量。 
       * Qcache_total_blocks:当前缓存的block数量。
-    {# endraw %}
+   {% endraw %}
 
 
 
