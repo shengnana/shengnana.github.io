@@ -1,4 +1,4 @@
-## RUNDECK安装 ##
+## RSYNC安装 ##
 #### 检查rsync是否已经安装 ####
   {% raw %}
   rpm -qa | grep rsync  //或者使用whereis rsync也可以
