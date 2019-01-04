@@ -107,3 +107,20 @@ auth users = lamper1021
 \# iptables -A INPUT -p tcp -m state --state NEW  -m tcp --dport 873 -j ACCEPT
 
 {% endraw %}
+
+###### xinnet启动 ######
+
+  {% raw %}
+  \#xinetd的rsync配置文件是/etc/xinetd.d/rsync，需要编辑此文件修改一个参数,显式的指定rsyncd服务的配置文件
+\# vi /etc/xinetd.d/rsync
+\# server_args     = --daemon --config=/etc/rsyncd/rsyncd.conf
+\# chkconfig rsync on
+\# service xinetd restart
+\#如果执行 service xinetd restart 发现 xinetd: unrecognized service 则未安装xinetd服务
+\#执行 yum install xinetd 安装 xinetd服务
+\#安装之后启动 xinetd服务(service xinetd start)
+  {% endraw %}
+  
+#### 检查rsync是否启动 ####
+
+netstat -an | grep 873
