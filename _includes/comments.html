@@ -2,13 +2,14 @@
 
 
 <script type="text/javascript">
+    var pathname = md5(location.pathname);
     const gitalk = new Gitalk({
-  clientID: 'GitHub Application Client ID',
-  clientSecret: 'GitHub Application Client Secret',
-  repo: 'GitHub repo',
-  owner: 'GitHub repo owner',
-  admin: ['GitHub repo owner and collaborators, only these guys can initialize github issues'],
-  id: location.pathname,      // Ensure uniqueness and length less than 50
+  clientID: '269c257ff0d1d63d92fa',
+  clientSecret: '2b76bf4635f6b6bfd107bfb148d84eee3b082bd2',
+  repo: 'https://github.com/shengnana/shengnana.github.io',
+  owner: 'shengnana',
+  admin: ['shengnana'],
+  id: pathname,      // Ensure uniqueness and length less than 50
   distractionFreeMode: false  // Facebook-like distraction free mode
 })
 
