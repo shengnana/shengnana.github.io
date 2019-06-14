@@ -103,7 +103,7 @@
       * Qcache_lowmem_prunes:该参数记录有多少条查询因为内存不足而被移除出查询缓存。通过这个值，用户可以适当的调整缓存大小。 
       * Qcache_not_cached: 表示因为query_cache_type的设置而没有被缓存的查询数量。 
       * Qcache_queries_in_cache:当前缓存中缓存的查询数量。 
-      * Qcache_total_blocks:当前缓存的block数量。
+      * Qcache_total_blocks:当前缓存的block数量。   
    {% endraw %}
 
 
